@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElementSmartTagger", "ElementSmartTagger.csproj", "{319BFCF4-D29F-45A8-9BC6-5A504656CD3E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{319BFCF4-D29F-45A8-9BC6-5A504656CD3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{319BFCF4-D29F-45A8-9BC6-5A504656CD3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{319BFCF4-D29F-45A8-9BC6-5A504656CD3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{319BFCF4-D29F-45A8-9BC6-5A504656CD3E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {417EDB65-49AA-4320-884B-FE27A4890341}
+	EndGlobalSection
+EndGlobal

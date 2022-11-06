@@ -1,0 +1,61 @@
+﻿<Window x:Class="SmartTag.TagForm"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SmartTag"
+             mc:Ignorable="d" 
+             Height="400" Width="500"
+             Title="Умная маркировка"
+        
+        Background="BlanchedAlmond" WindowStartupLocation="CenterScreen" >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+
+            <RowDefinition/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <ComboBox x:Name="ListCategory" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150"  ItemsSource="{Binding MarkTypes}"
+                                              SelectedItem="{Binding SelectedCategory}"                                              
+                                              DisplayMemberPath="Name" FontFamily="Arial" FontStyle="Normal" FontSize="14" SelectionChanged="List_SelectionChanged"/>
+        <ComboBox x:Name="DuctTags" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150"  
+            SelectedItem="{Binding SelectedTag}"  ItemsSource="{Binding symbolsTags}"   Visibility="Visible"                                         
+            DisplayMemberPath="Name" FontFamily="Arial" FontStyle="Normal" FontSize="14"  />
+
+        <Label Content="Маркируемые элементы" HorizontalAlignment="Center" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" FontSize="14" FontWeight="DemiBold"
+               Background="LightSeaGreen"/>
+        <Label Content="Марка" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" FontSize="14" FontWeight="DemiBold"
+            Background="LightSeaGreen" Width="168" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Button Grid.Column="1" Grid.Row="3" Content="Отмена" HorizontalAlignment="Center"  VerticalAlignment="Center" FontSize="14" Padding="10,4" Command="" Background="AliceBlue" Click="Button_Click"/>
+        <Button Grid.Row="3" Content="Запуск" HorizontalAlignment="Center"  VerticalAlignment="Center" FontSize="14"
+                Padding="10,4"  Background="AliceBlue" Click="Button_Click_1" Command="{Binding CreateTags}"/>
+        <CheckBox Content="Игнорировать вертикальные элементы"  IsChecked="{Binding IgnoreVertical}" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Top" FontSize="10" Margin="0,5,0,0"/>
+        <TextBox Name="TextBox" Text="{Binding MinimumLength}"   Grid.Column="1" HorizontalAlignment="Left" Margin="164,5,0,0" Grid.Row="2" TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="36" FontSize="10"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left"  Grid.Row="2" TextWrapping="Wrap" Text="Пропустить элементы короче" VerticalAlignment="Top"
+                   FontSize="10"  Margin="18,5,0,0"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="212,6,0,0" Grid.Row="2" TextWrapping="Wrap" 
+                   Text="мм" VerticalAlignment="Top" FontSize="10"/>
+        <CheckBox Content="Маркировать выделенные элементы"  IsChecked="{Binding UseSelecting}" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" FontSize="10" Margin="25,25,0,0"/>
+        <CheckBox Content="Создавать выноску"  IsChecked="{Binding HasLeader}" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" FontSize="10" Margin="25,46,0,0"/>
+        <CheckBox Content="Маркировка вручную по нескольким основам" IsChecked="{Binding ManyReferences}" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" FontSize="10" Margin="25,66,0,0" Grid.ColumnSpan="2" Width="248"/>
+        <TextBox x:Name="TextBox1" Text="{Binding J}"   Grid.Column="1" HorizontalAlignment="Left" Margin="164,25,0,0" Grid.Row="2" TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="36" FontSize="10"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left"  Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top"
+            FontSize="10"  Margin="18,25,0,0" Width="136" TextAlignment="Right"><Run Text="Смещение по "/><Run Text="горизонта"/><Run Language="ru-ru" Text="л"/><Run Text="и"/></TextBlock>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="212,25
+                   ,0,0" Grid.Row="2" TextWrapping="Wrap" 
+            Text="мм" VerticalAlignment="Top" FontSize="10"/>
+        <TextBox x:Name="TextBox2" Text="{Binding K}"   Grid.Column="1" HorizontalAlignment="Left" Margin="164,46,0,0" Grid.Row="2" TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="36" FontSize="10"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left"  Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top"
+            FontSize="10"  Margin="18,46,0,0" Width="136" TextAlignment="Right"><Run Text="Смещение по "/><Run Language="ru-ru" Text="вертикали"/></TextBlock>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="212,46,0,0" Grid.Row="2" TextWrapping="Wrap" 
+            Text="мм" VerticalAlignment="Top" FontSize="10"/>
+        <CheckBox Content="Задать смещение автоматически" IsChecked="{Binding AutoCreation}" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" FontSize="10" Margin="25,86,0,0" Grid.ColumnSpan="2" Width="248"/>
+
+    </Grid>
+</Window>

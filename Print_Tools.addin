@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<RevitAddIns>
+	<AddIn Type="Application">
+		<Name>QS_Tools</Name>
+		<Assembly>PrintTools.dll</Assembly>
+		<AddInId>CE5E59AC-BB95-42B0-84AE-8D7C23641763</AddInId>
+		<FullClassName>PrintTools.PrintTools</FullClassName>
+		<VendorId>CDS</VendorId>
+	</AddIn>
+</RevitAddIns>

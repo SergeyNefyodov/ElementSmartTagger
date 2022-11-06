@@ -1,0 +1,26 @@
+﻿<Window x:Class="SmartTag.MagicForm"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SmartTag"
+             xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
+             mc:Ignorable="d" 
+             Height="400" Width="1587"
+        Title="Отчёт о результатах балансировки"
+        Background="Azure">
+    <Grid Margin="0,0,0,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+
+        </Grid.ColumnDefinitions>
+        <DataGrid Name="grid_supply" 
+                    Margin="30,50,30,20" IsReadOnly="True" Loaded="grid_Loaded">
+
+        </DataGrid>
+        <DataGrid x:Name="grid_return" 
+              Margin="30,50,30,20"  IsReadOnly="True" Loaded="grid_Loaded" Grid.Column="1"/>
+        <RadioButton Content="Подающая" IsChecked="False" x:Name="SupplyFlag" HorizontalAlignment="Left" Margin="30,20,0,0" VerticalAlignment="Top" Checked="SupplyFlag_Checked"/>
+        <RadioButton Content="Обратная" IsChecked="True"  x:Name="ReturnFlag" HorizontalAlignment="Left" Margin="120,20,0,0" VerticalAlignment="Top" Checked="ReturnFlag_Checked"/>
+    </Grid>
+</Window>
