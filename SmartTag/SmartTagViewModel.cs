@@ -15,9 +15,20 @@ namespace SmartTag
     internal class SmartTagViewModel
     {
         private static ExternalCommandData _commandData;
-        private static UIDocument uidoc = _commandData.Application.ActiveUIDocument;
-        private static Document doc = uidoc.Document;
-        private static View view = doc.ActiveView;
+        private static UIDocument uidoc
+        {
+            get { return _commandData.Application.ActiveUIDocument; }
+        }
+       
+        private static Document doc
+        {
+            get { return uidoc.Document; }
+        }
+        private static View view
+        {
+            get { return doc.ActiveView; }
+        }
+            
         private static Dictionary<BuiltInCategory, BuiltInCategory> usedCategories = new Dictionary<BuiltInCategory, BuiltInCategory>()
         {
             {BuiltInCategory.OST_DuctTags, BuiltInCategory.OST_DuctCurves },
@@ -65,7 +76,7 @@ namespace SmartTag
         {
             _commandData = commandData;                    
             List<Category> markTypes = new List<Category>();
-            foreach (var bic in usedCategories.Values)
+            foreach (var bic in usedCategories.Keys)
             {
                 markTypes.Add(Category.GetCategory(doc, bic));
             }
@@ -114,7 +125,7 @@ namespace SmartTag
             using (Transaction t = new Transaction(doc, "Умная маркировка"))
             {
                 t.Start();
-                ElementId tagSymbolId = null;
+                ElementId tagSymbolId = SelectedTag.Id;
                 int.TryParse(J, out int j);
                 int.TryParse(K, out int k);// это числа, которые умножаются на масштаб и показывают, как мы двигаем марку. Выбираются подбором                
                 if (SelectedTag != null)
